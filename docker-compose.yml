@@ -1,0 +1,16 @@
+version: '3.3'
+
+services:
+  web-service:
+    build:
+      context: .
+      dockerfile: Dockerfile.server
+    ports:
+      - "5000:5000"
+
+  client:
+    build:
+      context: .
+      dockerfile: Dockerfile.client
+    depends_on:
+      - web-service
